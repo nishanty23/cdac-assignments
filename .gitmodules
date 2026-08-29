@@ -1,3 +1,3 @@
-[submodule "lab-work"]
-	path = lab-work
+[submodule "cdac-assignments-private"]
+	path = cdac-assignments-private
 	url = https://github.com/nishanty23/cdac-assignments-private.git
