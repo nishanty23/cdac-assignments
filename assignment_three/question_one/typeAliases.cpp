@@ -12,12 +12,12 @@ using IPAddress = string;
 typedef unsigned long long RequestId;
 
 void printHeaders(const HeaderList& headers){
-    cout<<"Headers:"<<endl;
     int size = headers.size();
     if(size == 0){
         cout<<"HeaderList is empty"<<endl;
         return;
     }
+    cout<<"Headers:"<<endl;
     for(int i=0; i<size; i++){
         cout<<headers[i].first<<"    : "<<headers[i].second<<endl;
     }
