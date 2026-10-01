@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
 class SelectionSort{
     public static void input(int arr[], int size, Scanner sc){
@@ -33,7 +34,9 @@ class SelectionSort{
         int size = sc.nextInt();
         int arr[] = new int[size];
         input(arr, size, sc);
+        System.out.println("Before sorting: "+Arrays.toString(arr));
         sort(arr, size);
-        display(arr, size);
+        //display(arr, size);
+        System.out.println("After sorting: "+Arrays.toString(arr));
     }
 }
