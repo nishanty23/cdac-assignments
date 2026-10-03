@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 class SimpleLinkedList{
     Node head;
 
@@ -23,6 +21,43 @@ class SimpleLinkedList{
         head = newNode;
     }
 
+    public void addLast(String data){
+        Node newNode = new Node(data);
+        if(head == null){
+            head = newNode;
+            return;
+        }
+        Node currNode = head;
+        while(currNode.next != null){
+            currNode = currNode.next;
+        }
+        currNode.next = newNode;
+    }
+
+    public void deleteFirst(){
+        if(head == null){
+            System.out.println("The list is empty");
+            return;
+        }
+        head = head.next;
+    }
+
+    public void deleteLast(){
+        if(head == null){
+            System.out.println("The list is empty");
+            return;
+        }
+        if(head.next == null){
+            head = null;
+            return;
+        }
+        Node currNode = head;
+        while(currNode.next.next != null){
+            currNode = currNode.next;
+        }
+        currNode.next = null;
+    }
+
     public void printList(){
         if(head == null){
             System.out.println("List is empty");
@@ -40,6 +75,10 @@ class SimpleLinkedList{
         SimpleLinkedList list = new SimpleLinkedList();
         list.addFirst("A");
         list.addFirst("B");
+        list.printList();
+        list.deleteFirst();
+        list.printList();
+        list.addLast("C");
         list.printList();
     }
 }
