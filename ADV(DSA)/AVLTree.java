@@ -1,14 +1,31 @@
 class AVLTree{
+    static class Node {
+        int key;
+        int height;
+        Node left;
+        Node right;
+
+        Node(int key) {
+            this.key = key;
+            this.height = 1;
+            this.left = null;
+            this.right = null;
+        }
+    }
+
     Node root;
+
     int height(Node N){
         if(N == null){
             return 0;
         }
         return N.height;
     }
+
     int max(int a, int b){
         return (a > b)? a:b;
     }
+
     Node leftRotate(Node x){
         Node y = x.right;
         Node T2 = y.left;
@@ -21,6 +38,7 @@ class AVLTree{
 
         return y;
     }
+
     Node rightRotate(Node y){
         Node x = y.left;
         Node T2 = x.right;
@@ -33,6 +51,7 @@ class AVLTree{
 
         return x;
     }
+
     int getBalance(Node N){
         if(N == null){
             return 0;
@@ -58,9 +77,16 @@ class AVLTree{
 
         if(balance > 1 && key < node.left.key)
             return rightRotate(node);
-        if(balance < -1 && key > node.right.key){
+        if(balance < -1 && key > node.right.key)
             return leftRotate(node);
-        
+        if(balance > 1 && key > node.left.key){
+            node.left = leftRotate(node.left);
+            return rightRotate(node);
         }
+        if(balance < -1 && key < node.right.key){
+            node.right = rightRotate(node.right);
+            return leftRotate(node);
+        }
+        return node;
     }
 }
