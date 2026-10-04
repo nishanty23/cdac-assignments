@@ -1,5 +1,10 @@
 class SimpleLinkedList{
     Node head;
+    private int size;
+
+    SimpleLinkedList(){
+        this.size = 0;
+    }
 
     class Node{
         String data;
@@ -8,6 +13,7 @@ class SimpleLinkedList{
         Node(String data){
             this.data = data;
             this.next = null;
+            size++;
         }
     }
 
@@ -39,6 +45,7 @@ class SimpleLinkedList{
             System.out.println("The list is empty");
             return;
         }
+        size--;
         head = head.next;
     }
 
@@ -47,6 +54,7 @@ class SimpleLinkedList{
             System.out.println("The list is empty");
             return;
         }
+        size--;
         if(head.next == null){
             head = null;
             return;
@@ -71,6 +79,10 @@ class SimpleLinkedList{
         System.out.println("NULL");
     }
 
+    public int getSize(){
+        return size;
+    }
+
     public static void main(String[] args){
         SimpleLinkedList list = new SimpleLinkedList();
         list.addFirst("A");
@@ -80,5 +92,6 @@ class SimpleLinkedList{
         list.printList();
         list.addLast("C");
         list.printList();
+        System.out.println("Size: " + list.getSize());
     }
 }
