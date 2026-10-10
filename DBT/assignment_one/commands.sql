@@ -25,6 +25,7 @@
    - book_id (Foreign Key referencing Books)
    - borrow_date (DATE)
    - return_date (DATE)
+6. Modify the Books table to add a column genre of type VARCHAR(50)
 */
 
 create database lms;
@@ -96,3 +97,17 @@ desc borrow_records;
 | borrow_date | date | YES  |     | NULL    |       |
 | return_date | date | YES  |     | NULL    |       |
 +-------------+------+------+-----+---------+-------+
+
+alter table books
+    -> add column genre varchar(50);
+desc books;
++------------------+--------------+------+-----+---------+-------+
+| Field            | Type         | Null | Key | Default | Extra |
++------------------+--------------+------+-----+---------+-------+
+| book_id          | int          | NO   | PRI | NULL    |       |
+| title            | varchar(150) | YES  |     | NULL    |       |
+| author_id        | int          | YES  | MUL | NULL    |       |
+| published_year   | year         | YES  |     | NULL    |       |
+| available_copies | int          | YES  |     | NULL    |       |
+| genre            | varchar(50)  | YES  |     | NULL    |       |
++------------------+--------------+------+-----+---------+-------+
