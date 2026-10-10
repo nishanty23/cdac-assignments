@@ -14,6 +14,11 @@
    - author_id (Foreign Key referencing Authors)
    - published_year (YEAR)
    - available_copies (INT)
+4. Write the SQL command to create a table Members with:
+   - member_id (Primary Key, INT)
+   - name (VARCHAR(100))
+   - email (VARCHAR(100), unique)
+   - phone (VARCHAR(15))
 */
 
 create database lms;
@@ -49,3 +54,19 @@ desc books;
 | published_year   | year         | YES  |     | NULL    |       |
 | available_copies | int          | YES  |     | NULL    |       |
 +------------------+--------------+------+-----+---------+-------+
+
+create table members (
+    -> member_id int primary key,
+    -> name varchar(100),
+    -> email varchar(100) unique,
+    -> phone varchar(15)
+    -> );
+desc members;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| member_id | int          | NO   | PRI | NULL    |       |
+| name      | varchar(100) | YES  |     | NULL    |       |
+| email     | varchar(100) | YES  | UNI | NULL    |       |
+| phone     | varchar(15)  | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
