@@ -27,6 +27,7 @@
    - return_date (DATE)
 6. Modify the Books table to add a column genre of type VARCHAR(50)
 7. Write the SQL command to drop the Borrow_Records table
+8. Insert 3 records into the Authors table
 */
 
 create database lms;
@@ -123,3 +124,16 @@ show tables;
 | books         |
 | members       |
 +---------------+
+
+insert into authors
+    -> values (1, 'Ruskin Bond', 'India'),
+    -> (2, 'Ed Sheeran', 'UK'),
+    -> (3, 'William Shakespeare', 'England');
+select * from authors;
++-----------+---------------------+---------+
+| author_id | name                | country |
++-----------+---------------------+---------+
+|         1 | Ruskin Bond         | India   |
+|         2 | Ed Sheeran          | UK      |
+|         3 | William Shakespeare | England |
++-----------+---------------------+---------+
