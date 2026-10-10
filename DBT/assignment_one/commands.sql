@@ -26,6 +26,7 @@
    - borrow_date (DATE)
    - return_date (DATE)
 6. Modify the Books table to add a column genre of type VARCHAR(50)
+7. Write the SQL command to drop the Borrow_Records table
 */
 
 create database lms;
@@ -111,3 +112,14 @@ desc books;
 | available_copies | int          | YES  |     | NULL    |       |
 | genre            | varchar(50)  | YES  |     | NULL    |       |
 +------------------+--------------+------+-----+---------+-------+
+
+
+drop table borrow_records;
+show tables;
++---------------+
+| Tables_in_lms |
++---------------+
+| authors       |
+| books         |
+| members       |
++---------------+
