@@ -19,6 +19,12 @@
    - name (VARCHAR(100))
    - email (VARCHAR(100), unique)
    - phone (VARCHAR(15))
+5. Write the SQL command to create a table Borrow_Records with:
+   - record_id (Primary Key, INT)
+   - member_id (Foreign Key referencing Members)
+   - book_id (Foreign Key referencing Books)
+   - borrow_date (DATE)
+   - return_date (DATE)
 */
 
 create database lms;
@@ -70,3 +76,23 @@ desc members;
 | email     | varchar(100) | YES  | UNI | NULL    |       |
 | phone     | varchar(15)  | YES  |     | NULL    |       |
 +-----------+--------------+------+-----+---------+-------+
+
+create table borrow_records (
+    -> record_id int primary key,
+    -> member_id int,
+    -> foreign key (member_id) references members(member_id),
+    -> book_id int,
+    -> foreign key (book_id) references books(book_id),
+    -> borrow_date date,
+    -> return_date date
+    -> );
+desc borrow_records;
++-------------+------+------+-----+---------+-------+
+| Field       | Type | Null | Key | Default | Extra |
++-------------+------+------+-----+---------+-------+
+| record_id   | int  | NO   | PRI | NULL    |       |
+| member_id   | int  | YES  | MUL | NULL    |       |
+| book_id     | int  | YES  | MUL | NULL    |       |
+| borrow_date | date | YES  |     | NULL    |       |
+| return_date | date | YES  |     | NULL    |       |
++-------------+------+------+-----+---------+-------+
