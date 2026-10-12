@@ -33,6 +33,7 @@
 11. Insert 4 borrow records into the Borrow_Records table
 12. Write an SQL query to select all books where published_year is after 2001
 13. Write a SQL query to create a foreign key & primary key relationship between two tables
+14. Write an SQL query to find all members who have borrowed the book with title 'Long Walk to Freedom'
 */
 
 create database lms;
@@ -244,3 +245,16 @@ desc books;
 | available_copies | int          | YES  |     | NULL    |       |
 | genre            | varchar(50)  | YES  |     | NULL    |       |
 +------------------+--------------+------+-----+---------+-------+
+
+select members.*
+    -> from members
+    -> join borrow_records
+    -> on members.member_id = borrow_records.member_id
+    -> join books
+    -> on borrow_records.book_id = books.book_id
+    -> where books.title = 'Long walk to freedom';
++-----------+-------------+-----------------+------------+
+| member_id | name        | email           | phone      |
++-----------+-------------+-----------------+------------+
+|         2 | Jatin Sapru | jatin@gmail.com | 7266994156 |
++-----------+-------------+-----------------+------------+
