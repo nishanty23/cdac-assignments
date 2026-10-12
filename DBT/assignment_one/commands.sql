@@ -29,6 +29,7 @@
 7. Write the SQL command to drop the Borrow_Records table
 8. Insert 3 records into the Authors table
 9. Insert 5 books into the Books table
+10. Insert 3 members into the Members table
 */
 
 create database lms;
@@ -175,3 +176,17 @@ select * from books;
 |       4 | Panchtantra               |       104 |           2010 |              500 | Comedy        |
 |       5 | Life of a Yogi            |       105 |           1955 |              500 | Spiritual     |
 +---------+---------------------------+-----------+----------------+------------------+---------------+
+
+insert into members
+    -> value (1, 'Aakash Chopra', 'aakash@gmail.com', '9196891477'),
+    -> (2, 'Jatin Sapru', 'jatin@gmail.com', '7266994156'),
+    -> (3, 'Abhishek Sharma', 'abhishek@gmail.com', '7155443154')
+    -> ;
+select * from members;
++-----------+-----------------+--------------------+------------+
+| member_id | name            | email              | phone      |
++-----------+-----------------+--------------------+------------+
+|         1 | Aakash Chopra   | aakash@gmail.com   | 9196891477 |
+|         2 | Jatin Sapru     | jatin@gmail.com    | 7266994156 |
+|         3 | Abhishek Sharma | abhishek@gmail.com | 7155443154 |
++-----------+-----------------+--------------------+------------+
