@@ -32,6 +32,7 @@
 10. Insert 3 members into the Members table
 11. Insert 4 borrow records into the Borrow_Records table
 12. Write an SQL query to select all books where published_year is after 2001
+13. Write a SQL query to create a foreign key & primary key relationship between two tables
 */
 
 create database lms;
@@ -219,3 +220,27 @@ select * from books
 |       3 | Stories of Life |       103 |           2004 |             1000 | Comedy |
 |       4 | Panchtantra     |       104 |           2010 |              500 | Comedy |
 +---------+-----------------+-----------+----------------+------------------+--------+
+
+create table voters (
+    -> name int,
+    -> voter_id int,
+    -> foreign key(voter_id) references books(book_id)
+    -> );
+desc voters;
++----------+------+------+-----+---------+-------+
+| Field    | Type | Null | Key | Default | Extra |
++----------+------+------+-----+---------+-------+
+| name     | int  | YES  |     | NULL    |       |
+| voter_id | int  | YES  | MUL | NULL    |       |
++----------+------+------+-----+---------+-------+
+desc books;
++------------------+--------------+------+-----+---------+-------+
+| Field            | Type         | Null | Key | Default | Extra |
++------------------+--------------+------+-----+---------+-------+
+| book_id          | int          | NO   | PRI | NULL    |       |
+| title            | varchar(150) | YES  |     | NULL    |       |
+| author_id        | int          | YES  | MUL | NULL    |       |
+| published_year   | year         | YES  |     | NULL    |       |
+| available_copies | int          | YES  |     | NULL    |       |
+| genre            | varchar(50)  | YES  |     | NULL    |       |
++------------------+--------------+------+-----+---------+-------+
