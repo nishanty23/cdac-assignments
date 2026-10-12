@@ -28,6 +28,7 @@
 6. Modify the Books table to add a column genre of type VARCHAR(50)
 7. Write the SQL command to drop the Borrow_Records table
 8. Insert 3 records into the Authors table
+9. Insert 5 books into the Books table
 */
 
 create database lms;
@@ -137,3 +138,40 @@ select * from authors;
 |         2 | Ed Sheeran          | UK      |
 |         3 | William Shakespeare | England |
 +-----------+---------------------+---------+
+
+update authors
+    -> set author_id=case
+    -> when author_id=1 then 101
+    -> when author_id=2 then 102
+    -> when author_id=3 then 103
+    -> when author_id=4 then 104
+    -> when author_id=5 then 105
+    -> end
+    -> where author_id in (1, 2, 3, 4, 5);
+select * from authors;
++-----------+---------------------+---------+
+| author_id | name                | country |
++-----------+---------------------+---------+
+|       101 | Ruskin Bond         | India   |
+|       102 | Ed Sheeran          | UK      |
+|       103 | William Shakespeare | England |
+|       104 | SRK                 | India   |
+|       105 | Elon Musk           | USA     |
++-----------+---------------------+---------+
+insert into books
+    -> values (1, 'My Experiments with Truth', 101, 1950, 1000000, 'Autobiography'),
+    -> (2, 'Long Walk to Freedom', 102, 1990, 1000000, 'Autobiography'),
+    -> (3, 'Stories of Life', 103, 2004, 1000, 'Comedy'),
+    -> (4, 'Panchtantra', 104, 2010, 500, 'Comedy'),
+    -> (5, 'Life of a Yogi', 105, 1955, 500, 'Spiritual')
+    -> ;
+select * from books;
++---------+---------------------------+-----------+----------------+------------------+---------------+
+| book_id | title                     | author_id | published_year | available_copies | genre         |
++---------+---------------------------+-----------+----------------+------------------+---------------+
+|       1 | My Experiments with Truth |       101 |           1950 |          1000000 | Autobiography |
+|       2 | Long Walk to Freedom      |       102 |           1990 |          1000000 | Autobiography |
+|       3 | Stories of Life           |       103 |           2004 |             1000 | Comedy        |
+|       4 | Panchtantra               |       104 |           2010 |              500 | Comedy        |
+|       5 | Life of a Yogi            |       105 |           1955 |              500 | Spiritual     |
++---------+---------------------------+-----------+----------------+------------------+---------------+
