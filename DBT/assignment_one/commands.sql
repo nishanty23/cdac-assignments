@@ -31,6 +31,7 @@
 9. Insert 5 books into the Books table
 10. Insert 3 members into the Members table
 11. Insert 4 borrow records into the Borrow_Records table
+12. Write an SQL query to select all books where published_year is after 2001
 */
 
 create database lms;
