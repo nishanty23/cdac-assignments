@@ -208,3 +208,13 @@ select * from borrow_records;
 |         3 | Sachin Tendulkar | sachin@gmail.com | 7283541339 |
 |         4 | Sehwag           | sehwag@gmail.com | 7383541429 |
 +-----------+------------------+------------------+------------+
+
+select * from books
+    -> where published_year > 2001
+    -> ;
++---------+-----------------+-----------+----------------+------------------+--------+
+| book_id | title           | author_id | published_year | available_copies | genre  |
++---------+-----------------+-----------+----------------+------------------+--------+
+|       3 | Stories of Life |       103 |           2004 |             1000 | Comedy |
+|       4 | Panchtantra     |       104 |           2010 |              500 | Comedy |
++---------+-----------------+-----------+----------------+------------------+--------+
