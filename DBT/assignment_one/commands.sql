@@ -34,6 +34,7 @@
 12. Write an SQL query to select all books where published_year is after 2001
 13. Write a SQL query to create a foreign key & primary key relationship between two tables
 14. Write an SQL query to find all members who have borrowed the book with title 'Long Walk to Freedom'
+15. Update the available_copies column of a specific book (choose any book) by reducing it by 1 after it is borrowed.
 */
 
 create database lms;
@@ -258,3 +259,17 @@ select members.*
 +-----------+-------------+-----------------+------------+
 |         2 | Jatin Sapru | jatin@gmail.com | 7266994156 |
 +-----------+-------------+-----------------+------------+
+
+update books
+    -> set available_copies = available_copies - 1
+    -> where title = 'Panchtantra';
+select * from books;
++---------+---------------------------+-----------+----------------+------------------+---------------+
+| book_id | title                     | author_id | published_year | available_copies | genre         |
++---------+---------------------------+-----------+----------------+------------------+---------------+
+|       1 | My Experiments with Truth |       101 |           1950 |          1000000 | Autobiography |
+|       2 | Long Walk to Freedom      |       102 |           1990 |          1000000 | Autobiography |
+|       3 | Stories of Life           |       103 |           2004 |             1000 | Comedy        |
+|       4 | Panchtantra               |       104 |           2010 |              499 | Comedy        |
+|       5 | Life of a Yogi            |       105 |           1955 |              500 | Spiritual     |
++---------+---------------------------+-----------+----------------+------------------+---------------+
