@@ -30,6 +30,7 @@
 8. Insert 3 records into the Authors table
 9. Insert 5 books into the Books table
 10. Insert 3 members into the Members table
+11. Insert 4 borrow records into the Borrow_Records table
 */
 
 create database lms;
@@ -190,3 +191,20 @@ select * from members;
 |         2 | Jatin Sapru     | jatin@gmail.com    | 7266994156 |
 |         3 | Abhishek Sharma | abhishek@gmail.com | 7155443154 |
 +-----------+-----------------+--------------------+------------+
+
+insert into borrow_records
+    -> values
+    -> (1, 'MS Dhoni', 'msd@gmail.com', '7483541779'),
+    -> (2, 'Yuvraj Singh', 'yuvi@gmail.com', '7383541889'),
+    -> (3, 'Sachin Tendulkar', 'sachin@gmail.com', '7283541339'),
+    -> (4, 'Sehwag', 'sehwag@gmail.com', '7383541429')
+    -> ;
+select * from borrow_records;
++-----------+------------------+------------------+------------+
+| member_id | name             | email            | phone      |
++-----------+------------------+------------------+------------+
+|         1 | MS Dhoni         | msd@gmail.com    | 7483541779 |
+|         2 | Yuvraj Singh     | yuvi@gmail.com   | 7383541889 |
+|         3 | Sachin Tendulkar | sachin@gmail.com | 7283541339 |
+|         4 | Sehwag           | sehwag@gmail.com | 7383541429 |
++-----------+------------------+------------------+------------+
