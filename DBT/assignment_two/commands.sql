@@ -5,6 +5,7 @@
 4. Write a SQL query to delete all records from a table
 5. Write a SQL query to update salary records from a table where id = 105
 6. Write a query to grant SELECT privilege on the Emp table to user readonly_user
+7. Write a query to revoke INSERT privilege on the Emp table from user temp_user
 */
 create table employee (
     -> emp_id int primary key,
@@ -85,3 +86,5 @@ select * from employee;
 create user 'readonly_user' @ 'localhost'
 identified by 'password123';
 grant select on employee to 'readonly_user' @ 'localhost';
+
+revoke insert on employee from 'temp_user';
