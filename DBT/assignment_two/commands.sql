@@ -10,6 +10,7 @@
 9. Write a query to update the Salary of an employee with EmpID = 101 and commit the transaction
 10. Write a query to set a SAVEPOINT before updating the DeptID of an employee
 11. Write a query to rollback to the previously created SAVEPOINT
+12. Write a query to truncate all data from the Emp table
 */
 create table employee (
     -> emp_id int primary key,
@@ -139,3 +140,5 @@ select * from department;
 |       5 | Manufacturing   |    103 |           700000 |
 +---------+-----------------+--------+------------------+
 commit;
+
+truncate table employee;
