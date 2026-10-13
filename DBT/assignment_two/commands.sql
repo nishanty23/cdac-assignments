@@ -16,6 +16,8 @@
 15. Write a query to count the total number of employees in each department
 16. Write a query to list departments that have no employees. & create a view for those salespeople who belong to the city of Mumbai
 17. Write a query to display the highest salary among all employees
+18. Write a query to display the 2nd highest salary among all employees
+19. Write a query to show all employees ordered by JoiningDate in descending order
 */
 create table employee (
     -> emp_id int primary key,
@@ -211,3 +213,25 @@ select max(salary) from employee;
 +-------------+
 |     3110000 |
 +-------------+
+
+select max(salary) from employee
+    -> where salary < (select max(salary) from employee);
++-------------+
+| max(salary) |
++-------------+
+|     2500000 |
++-------------+
+
+select * from employee
+    -> order by joining_date desc;
++--------+----------+-----+--------+---------+--------+--------------+
+| emp_id | name     | age | gender | salary  | city   | joining_date |
++--------+----------+-----+--------+---------+--------+--------------+
+|    101 | Anshul   |  22 | M      | 2420000 | Delhi  | 2020-03-31   |
+|    102 | Sidhant  |  20 | M      | 1800000 | Delhi  | 2020-03-31   |
+|    104 | Aakash   |  19 | M      | 2500000 | Delhi  | 2020-03-31   |
+|    105 | Kaushik  |  23 | M      | 3110000 | Delhi  | 2020-03-31   |
+|    107 | Amar     |  18 | M      |  600000 | Delhi  | 2020-03-31   |
+|    103 | Sita     |  40 | F      | 1650000 | Mumbai | 2010-03-31   |
+|    106 | Abhishek |  35 | M      | 1100000 | Mumbai | 2010-03-31   |
++--------+----------+-----+--------+---------+--------+--------------+
