@@ -18,6 +18,7 @@
 17. Write a query to display the highest salary among all employees
 18. Write a query to display the 2nd highest salary among all employees
 19. Write a query to show all employees ordered by JoiningDate in descending order
+20. Write a query to rename the Name column to DepartmentName
 */
 create table employee (
     -> emp_id int primary key,
@@ -235,3 +236,16 @@ select * from employee
 |    103 | Sita     |  40 | F      | 1650000 | Mumbai | 2010-03-31   |
 |    106 | Abhishek |  35 | M      | 1100000 | Mumbai | 2010-03-31   |
 +--------+----------+-----+--------+---------+--------+--------------+
+
+alter table department
+    -> rename column name to dept_name;
+select * from department;
++---------+-----------------+--------+------------------+
+| dept_id | dept_name       | emp_id | allocated_budget |
++---------+-----------------+--------+------------------+
+|       1 | Technical       |    101 |          1000000 |
+|       2 | Sales           |    106 |           500000 |
+|       3 | Accounts        |    102 |           400000 |
+|       4 | Founders Office |    102 |           400000 |
+|       5 | Manufacturing   |    103 |           700000 |
++---------+-----------------+--------+------------------+
