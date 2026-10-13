@@ -11,6 +11,7 @@
 10. Write a query to set a SAVEPOINT before updating the DeptID of an employee
 11. Write a query to rollback to the previously created SAVEPOINT
 12. Write a query to truncate all data from the Emp table
+13. Write a query to list all employees whose salary is greater than 15,00,000
 */
 create table employee (
     -> emp_id int primary key,
@@ -142,3 +143,14 @@ select * from department;
 commit;
 
 truncate table employee;
+
+select * from employee
+    -> where salary > 1500000;
++--------+---------+-----+--------+---------+
+| emp_id | name    | age | gender | salary  |
++--------+---------+-----+--------+---------+
+|    101 | Anshul  |  22 | M      | 2420000 |
+|    102 | Sidhant |  20 | M      | 1800000 |
+|    104 | Aakash  |  19 | M      | 2500000 |
+|    105 | Kaushik |  23 | M      | 3110000 |
++--------+---------+-----+--------+---------+
