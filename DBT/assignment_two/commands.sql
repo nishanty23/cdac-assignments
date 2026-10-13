@@ -7,6 +7,7 @@
 6. Write a query to grant SELECT privilege on the Emp table to user readonly_user
 7. Write a query to revoke INSERT privilege on the Emp table from user temp_user
 8. Write a query to insert a new employee into the Emp table and commit the transaction
+9. Write a query to update the Salary of an employee with EmpID = 101 and commit the transaction
 */
 create table employee (
     -> emp_id int primary key,
@@ -90,6 +91,7 @@ grant select on employee to 'readonly_user' @ 'localhost';
 
 revoke insert on employee from 'temp_user';
 
+start transaction;
 insert into employee
     -> values (106, 'Abhishek', 35, 'M', 1100000);
 commit;
@@ -99,3 +101,21 @@ select @@autocommit;
 +--------------+
 |            1 |
 +--------------+
+
+start transaction;
+update employee
+    -> set salary = salary + 20000
+    -> where emp_id = 101;
+select * from employee;
++--------+----------+-----+--------+---------+
+| emp_id | name     | age | gender | salary  |
++--------+----------+-----+--------+---------+
+|    101 | Anshul   |  22 | M      | 2420000 |
+|    102 | Sidhant  |  20 | M      | 1800000 |
+|    103 | Sita     |  40 | F      | 1500000 |
+|    104 | Aakash   |  19 | M      | 2500000 |
+|    105 | Kaushik  |  23 | M      | 3110000 |
+|    106 | Abhishek |  35 | M      | 1100000 |
+|    107 | Amar     |  18 | M      |  600000 |
++--------+----------+-----+--------+---------+
+commit;
