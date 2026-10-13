@@ -1,7 +1,8 @@
 /*
 1. Write a SQL query to create Employee & Department table with specific columns and constraints.(Note- Create Table, insert data as per your Choice)
 2. Write a SQL query to add any new column to an existing table
-3. Write a SQL query to insert multiple records (At least 5) into a table in a single operation.
+3. Write a SQL query to insert multiple records (At least 5) into a table in a single operation
+4. Write a SQL query to delete all records from a table
 */
 create table employee (
     -> emp_id int primary key,
@@ -62,3 +63,5 @@ select * from department;
 |       4 | Founders Office |    102 |           400000 |
 |       5 | Manufacturing   |    103 |           700000 |
 +---------+-----------------+--------+------------------+
+
+delete from department;
