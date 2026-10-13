@@ -37,6 +37,7 @@
 15. Update the available_copies column of a specific book (choose any book) by reducing it by 1 after it is borrowed.
 16. Delete a record from Members where member_id = 3
 17. Update a Book name record from Book table  with id = 5
+18. Write an SQL query to list all books along with their authors' names
 */
 
 create database lms;
@@ -299,3 +300,16 @@ select * from books;
 |       4 | Panchtantra               |       104 |           2010 |              499 | Comedy        |
 |       5 | World of Wonders          |       105 |           1955 |              500 | Spiritual     |
 +---------+---------------------------+-----------+----------------+------------------+---------------+
+
+select books.title, authors.name from books
+    -> inner join authors
+    -> on books.author_id = authors.author_id;
++---------------------------+---------------------+
+| title                     | name                |
++---------------------------+---------------------+
+| My Experiments with Truth | Ruskin Bond         |
+| Long Walk to Freedom      | Ed Sheeran          |
+| Stories of Life           | William Shakespeare |
+| Panchtantra               | SRK                 |
+| World of Wonders          | Elon Musk           |
++---------------------------+---------------------+
