@@ -12,6 +12,7 @@
 11. Write a query to rollback to the previously created SAVEPOINT
 12. Write a query to truncate all data from the Emp table
 13. Write a query to list all employees whose salary is greater than 15,00,000
+14. Write a query to increase the salary of all employees in DeptID = 10 by 10%
 */
 create table employee (
     -> emp_id int primary key,
@@ -154,3 +155,23 @@ select * from employee
 |    104 | Aakash  |  19 | M      | 2500000 |
 |    105 | Kaushik |  23 | M      | 3110000 |
 +--------+---------+-----+--------+---------+
+
+update employee
+    -> set salary = salary * 1.10
+    -> where emp_id in (
+    -> select emp_id
+    -> from department
+    -> where dept_id = 5
+    -> );
+select * from employee;
++--------+----------+-----+--------+---------+
+| emp_id | name     | age | gender | salary  |
++--------+----------+-----+--------+---------+
+|    101 | Anshul   |  22 | M      | 2420000 |
+|    102 | Sidhant  |  20 | M      | 1800000 |
+|    103 | Sita     |  40 | F      | 1650000 |
+|    104 | Aakash   |  19 | M      | 2500000 |
+|    105 | Kaushik  |  23 | M      | 3110000 |
+|    106 | Abhishek |  35 | M      | 1100000 |
+|    107 | Amar     |  18 | M      |  600000 |
++--------+----------+-----+--------+---------+
