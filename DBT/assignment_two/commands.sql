@@ -6,6 +6,7 @@
 5. Write a SQL query to update salary records from a table where id = 105
 6. Write a query to grant SELECT privilege on the Emp table to user readonly_user
 7. Write a query to revoke INSERT privilege on the Emp table from user temp_user
+8. Write a query to insert a new employee into the Emp table and commit the transaction
 */
 create table employee (
     -> emp_id int primary key,
@@ -88,3 +89,13 @@ identified by 'password123';
 grant select on employee to 'readonly_user' @ 'localhost';
 
 revoke insert on employee from 'temp_user';
+
+insert into employee
+    -> values (106, 'Abhishek', 35, 'M', 1100000);
+commit;
+select @@autocommit;
++--------------+
+| @@autocommit |
++--------------+
+|            1 |
++--------------+
