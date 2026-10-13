@@ -36,6 +36,7 @@
 14. Write an SQL query to find all members who have borrowed the book with title 'Long Walk to Freedom'
 15. Update the available_copies column of a specific book (choose any book) by reducing it by 1 after it is borrowed.
 16. Delete a record from Members where member_id = 3
+17. Update a Book name record from Book table  with id = 5
 */
 
 create database lms;
@@ -284,3 +285,17 @@ select * from members;
 |         1 | Aakash Chopra | aakash@gmail.com | 9196891477 |
 |         2 | Jatin Sapru   | jatin@gmail.com  | 7266994156 |
 +-----------+---------------+------------------+------------+
+
+update books
+    -> set title = 'World of Wonders'
+    -> where book_id = 5;
+select * from books;
++---------+---------------------------+-----------+----------------+------------------+---------------+
+| book_id | title                     | author_id | published_year | available_copies | genre         |
++---------+---------------------------+-----------+----------------+------------------+---------------+
+|       1 | My Experiments with Truth |       101 |           1950 |          1000000 | Autobiography |
+|       2 | Long Walk to Freedom      |       102 |           1990 |          1000000 | Autobiography |
+|       3 | Stories of Life           |       103 |           2004 |             1000 | Comedy        |
+|       4 | Panchtantra               |       104 |           2010 |              499 | Comedy        |
+|       5 | World of Wonders          |       105 |           1955 |              500 | Spiritual     |
++---------+---------------------------+-----------+----------------+------------------+---------------+
