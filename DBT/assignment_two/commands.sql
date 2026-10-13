@@ -13,6 +13,7 @@
 12. Write a query to truncate all data from the Emp table
 13. Write a query to list all employees whose salary is greater than 15,00,000
 14. Write a query to increase the salary of all employees in DeptID = 10 by 10%
+15. Write a query to count the total number of employees in each department
 */
 create table employee (
     -> emp_id int primary key,
@@ -175,3 +176,15 @@ select * from employee;
 |    106 | Abhishek |  35 | M      | 1100000 |
 |    107 | Amar     |  18 | M      |  600000 |
 +--------+----------+-----+--------+---------+
+
+select name, count(emp_id) from department
+    -> group by name;
++-----------------+---------------+
+| name            | count(emp_id) |
++-----------------+---------------+
+| Technical       |             1 |
+| Sales           |             1 |
+| Accounts        |             1 |
+| Founders Office |             1 |
+| Manufacturing   |             1 |
++-----------------+---------------+
