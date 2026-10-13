@@ -3,6 +3,7 @@
 2. Write a SQL query to add any new column to an existing table
 3. Write a SQL query to insert multiple records (At least 5) into a table in a single operation
 4. Write a SQL query to delete all records from a table
+5. Write a SQL query to update salary records from a table where id = 105
 */
 create table employee (
     -> emp_id int primary key,
@@ -65,3 +66,17 @@ select * from department;
 +---------+-----------------+--------+------------------+
 
 delete from department;
+
+update employee
+    -> set salary = salary + 10000
+    -> where emp_id = 105;
+select * from employee;
++--------+---------+-----+--------+---------+
+| emp_id | name    | age | gender | salary  |
++--------+---------+-----+--------+---------+
+|    101 | Anshul  |  22 | M      | 2400000 |
+|    102 | Sidhant |  20 | M      | 1800000 |
+|    103 | Sita    |  40 | F      | 1500000 |
+|    104 | Aakash  |  19 | M      | 2500000 |
+|    105 | Kaushik |  23 | M      | 3110000 |
++--------+---------+-----+--------+---------+
