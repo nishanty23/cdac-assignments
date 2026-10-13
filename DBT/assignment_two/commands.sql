@@ -14,6 +14,7 @@
 13. Write a query to list all employees whose salary is greater than 15,00,000
 14. Write a query to increase the salary of all employees in DeptID = 10 by 10%
 15. Write a query to count the total number of employees in each department
+16. Write a query to list departments that have no employees. & create a view for those salespeople who belong to the city of Mumbai
 */
 create table employee (
     -> emp_id int primary key,
@@ -188,3 +189,17 @@ select name, count(emp_id) from department
 | Founders Office |             1 |
 | Manufacturing   |             1 |
 +-----------------+---------------+
+
+create view mumbai_salespeople as
+    -> select employee.emp_id, employee.name, employee.age, employee.gender, employee.salary, employee.city
+    -> from employee
+    -> join department
+    -> on employee.emp_id = department.emp_id
+    -> where employee.city = 'mumbai'
+    -> and department.name = 'sales';
+select * from mumbai_salespeople;
++--------+----------+-----+--------+---------+--------+
+| emp_id | name     | age | gender | salary  | city   |
++--------+----------+-----+--------+---------+--------+
+|    106 | Abhishek |  35 | M      | 1100000 | Mumbai |
++--------+----------+-----+--------+---------+--------+
