@@ -8,6 +8,8 @@
 7. Write a query to revoke INSERT privilege on the Emp table from user temp_user
 8. Write a query to insert a new employee into the Emp table and commit the transaction
 9. Write a query to update the Salary of an employee with EmpID = 101 and commit the transaction
+10. Write a query to set a SAVEPOINT before updating the DeptID of an employee
+11. Write a query to rollback to the previously created SAVEPOINT
 */
 create table employee (
     -> emp_id int primary key,
@@ -118,4 +120,22 @@ select * from employee;
 |    106 | Abhishek |  35 | M      | 1100000 |
 |    107 | Amar     |  18 | M      |  600000 |
 +--------+----------+-----+--------+---------+
+commit;
+
+start transaction;
+savepoint sp1;
+update department
+    -> set dept_id = 10
+    -> where dept_id = 5;
+rollback to sp1;
+select * from department;
++---------+-----------------+--------+------------------+
+| dept_id | name            | emp_id | allocated_budget |
++---------+-----------------+--------+------------------+
+|       1 | Technical       |    101 |          1000000 |
+|       2 | Sales           |    101 |           500000 |
+|       3 | Accounts        |    102 |           400000 |
+|       4 | Founders Office |    102 |           400000 |
+|       5 | Manufacturing   |    103 |           700000 |
++---------+-----------------+--------+------------------+
 commit;
