@@ -38,6 +38,8 @@
 16. Delete a record from Members where member_id = 3
 17. Update a Book name record from Book table  with id = 5
 18. Write an SQL query to list all books along with their authors' names
+19. Write an SQL query to delete all books from the Books table where the published_year is before 2000
+20. Write an SQL query to find all books that are never borrowed (i.e., no records in Borrow_Records)
 */
 
 create database lms;
@@ -313,3 +315,17 @@ select books.title, authors.name from books
 | Panchtantra               | SRK                 |
 | World of Wonders          | Elon Musk           |
 +---------------------------+---------------------+
+
+delete from books
+    -> where published_year < 2000;
+
+select books.title from books
+    -> left join borrow_records
+    -> on books.book_id = borrow_records.book_id
+    -> where borrow_records.book_id is null;
++------------------+
+| title            |
++------------------+
+| Panchtantra      |
+| World of Wonders |
++------------------+
