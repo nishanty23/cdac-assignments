@@ -1,6 +1,7 @@
 /*
 1. Write a query to calculate the total salary of all employees
 2. Write a query to find the average salary of employees in each department using GROUP BY
+3. Write a query to count the total number of employees in each department
 */
 select Sum(salary) from employee;
 +-------------+
@@ -22,3 +23,16 @@ select avg(salary) from employee
 | 1800000.0000 |
 | 1650000.0000 |
 +--------------+
+
+select dept_name, count(*) as total_employees
+    -> from department
+    -> group by dept_name;
++-----------------+-----------------+
+| dept_name       | total_employees |
++-----------------+-----------------+
+| Technical       |               1 |
+| Sales           |               1 |
+| Accounts        |               1 |
+| Founders Office |               1 |
+| Manufacturing   |               1 |
++-----------------+-----------------+
