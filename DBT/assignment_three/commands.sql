@@ -3,6 +3,7 @@
 2. Write a query to find the average salary of employees in each department using GROUP BY
 3. Write a query to count the total number of employees in each department
 4. Write a query to display departments having more than 5 employees using HAVING clause
+5. Write a query to list distinct department locations from the Dept table
 */
 select Sum(salary) from employee;
 +-------------+
@@ -42,3 +43,6 @@ SELECT department_id, COUNT(*) AS employee_count
 FROM employee
 GROUP BY department_id
 HAVING COUNT(*) > 5;
+
+SELECT DISTINCT location
+FROM Dept;
