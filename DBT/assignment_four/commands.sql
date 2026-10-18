@@ -5,7 +5,14 @@
   40–74 → Pass
   Below 40 → Fail
 
+2) Write a procedure:
+  check_grade(IN grade INT)
 
+  with:
+  1 → Excellent
+  2 → Good
+  3 → Average
+  anything else → Invalid
 */
 DELIMITER //
 
@@ -25,4 +32,26 @@ END //
 DELIMITER ;
 
 CALL check_marks(85);
+-----------------------------------------------------------------------------------------------------------
+
+DELIMITER //
+
+CREATE PROCEDURE check_grade(IN grade INT)
+BEGIN
+    CASE grade
+        WHEN 1 THEN
+            SELECT 'Excellent';
+        WHEN 2 THEN
+            SELECT 'Good';
+        WHEN 3 THEN
+            SELECT 'Average';
+        ELSE
+            SELECT 'Invalid';
+    END CASE;
+END //
+
+DELIMITER ;
+
+SET @num = 10;
+CALL check_grade(@num);
 -----------------------------------------------------------------------------------------------------------
