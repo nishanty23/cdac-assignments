@@ -8,6 +8,11 @@
     5
 
     using REPEAT...UNTIL.
+3) Write a MySQL stored function:
+    square_number(n INT)
+    that returns the square of n.
+    Then show how to call it for:
+    5
 */
 
 DELIMITER //
@@ -48,3 +53,17 @@ DELIMITER ;
 CALL print_numbers();
 
 -----------------------------------------------------------------------------------------------------------
+
+DELIMITER //
+
+CREATE FUNCTION square_number(n INT)
+RETURNS INT
+DETERMINISTIC
+NO SQL
+BEGIN
+    RETURN n * n;
+END //
+
+DELIMITER ;
+
+SELECT square_number(5);
