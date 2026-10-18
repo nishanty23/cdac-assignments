@@ -13,6 +13,13 @@
   2 → Good
   3 → Average
   anything else → Invalid
+
+3) Write a procedure print_numbers that displays:
+  1
+  2
+  3
+  4
+  5
 */
 DELIMITER //
 
@@ -54,4 +61,21 @@ DELIMITER ;
 
 SET @num = 10;
 CALL check_grade(@num);
+-----------------------------------------------------------------------------------------------------------
+
+DELIMITER //
+
+CREATE PROCEDURE print_numbers()
+BEGIN
+    DECLARE i INT DEFAULT 1;
+
+    WHILE i <= 5 DO
+        SELECT i;
+        SET i = i + 1;
+    END WHILE;
+END //
+
+DELIMITER ;
+
+CALL print_numbers();
 -----------------------------------------------------------------------------------------------------------
