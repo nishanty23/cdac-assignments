@@ -4,6 +4,8 @@
 3. Write a query to count the total number of employees in each department
 4. Write a query to display departments having more than 5 employees using HAVING clause
 5. Write a query to list distinct department locations from the Dept table
+6. Write the complete procedure:
+check_age accepts an age. If age is 18 or more, display Eligible; otherwise display Not Eligible.
 */
 select Sum(salary) from employee;
 +-------------+
@@ -46,3 +48,18 @@ HAVING COUNT(*) > 5;
 
 SELECT DISTINCT location
 FROM Dept;
+-----------------------------------------------------------------------------------------------------------
+DELIMITER //
+
+CREATE PROCEDURE check_age(IN age INT)
+BEGIN
+    IF age >= 18 THEN
+        SELECT 'Eligible';
+    ELSE
+        SELECT 'Not Eligible';
+    END IF;
+END //
+
+DELIMITER ;
+
+CALL check_age(10);
