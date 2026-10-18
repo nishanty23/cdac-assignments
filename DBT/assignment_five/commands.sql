@@ -13,6 +13,18 @@
     that returns the square of n.
     Then show how to call it for:
     5
+4) Write a trigger called:
+    validate_salary
+
+    for:
+    employee
+
+    that runs BEFORE INSERT and prevents insertion when:
+    salary < 0
+
+    Use:
+    SIGNAL SQLSTATE '45000'
+    SET MESSAGE_TEXT = 'Salary cannot be negative';
 */
 
 DELIMITER //
@@ -67,3 +79,21 @@ END //
 DELIMITER ;
 
 SELECT square_number(5);
+
+-----------------------------------------------------------------------------------------------------------
+
+DELIMITER //
+
+CREATE TRIGGER validate_salary
+BEFORE INSERT ON employee
+FOR EACH ROW
+BEGIN
+    IF NEW.salary < 0 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Salary cannot be negative';
+    END IF;
+END //
+
+DELIMITER ;
+
+-----------------------------------------------------------------------------------------------------------
