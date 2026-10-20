@@ -27,6 +27,23 @@
     SET MESSAGE_TEXT = 'Salary cannot be negative';
 */
 
+DELIMITER //
+
+CREATE PROCEDURE print_numbers()
+BEGIN
+    DECLARE i INT DEFAULT 1;
+
+    REPEAT
+        SELECT i;
+        SET i = i + 1;
+    UNTIL i > 5
+    END REPEAT;
+
+END //
+
+DELIMITER ;
+
+CALL print_numbers();
 
 -----------------------------------------------------------------------------------------------------------
 
