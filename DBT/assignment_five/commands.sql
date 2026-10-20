@@ -1,6 +1,13 @@
 /*
 1) Print 1 to 5 using REPEAT
+2) Write a procedure called print_numbers that displays:
+    1
+    2
+    3
+    4
+    5
 
+    using REPEAT...UNTIL.
 3) Write a MySQL stored function:
     square_number(n INT)
     that returns the square of n.
