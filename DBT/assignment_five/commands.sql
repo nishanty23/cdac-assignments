@@ -82,6 +82,18 @@ SELECT square_number(5);
 
 -----------------------------------------------------------------------------------------------------------
 
+DELIMITER //
 
+CREATE TRIGGER validate_salary
+BEFORE INSERT ON employee
+FOR EACH ROW
+BEGIN
+    IF NEW.salary < 0 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Salary cannot be negative';
+    END IF;
+END //
+
+DELIMITER ;
 
 -----------------------------------------------------------------------------------------------------------
