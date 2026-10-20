@@ -13,18 +13,6 @@
     that returns the square of n.
     Then show how to call it for:
     5
-4) Write a trigger called:
-    validate_salary
-
-    for:
-    employee
-
-    that runs BEFORE INSERT and prevents insertion when:
-    salary < 0
-
-    Use:
-    SIGNAL SQLSTATE '45000'
-    SET MESSAGE_TEXT = 'Salary cannot be negative';
 */
 
 DELIMITER //
